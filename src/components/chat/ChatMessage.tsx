@@ -10,7 +10,7 @@ interface ChatMessageProps {
 
 export function ChatMessage({ sender, content, timestamp, isAnimated = true }: ChatMessageProps) {
   const isUser = sender === "user";
-  
+
   return (
     <div
       className={cn(
@@ -20,9 +20,9 @@ export function ChatMessage({ sender, content, timestamp, isAnimated = true }: C
       )}
     >
       {!isUser && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+        <div className="flex-shrink-0 w-9 h-9 rounded-xl widget-header-gradient flex items-center justify-center shadow-glow">
           <svg
-            className="w-4 h-4 text-primary-foreground"
+            className="w-4 h-4 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -36,27 +36,27 @@ export function ChatMessage({ sender, content, timestamp, isAnimated = true }: C
           </svg>
         </div>
       )}
-      
+
       <div className={cn("max-w-[75%] flex flex-col", isUser && "items-end")}>
         <div
           className={cn(
-            "px-4 py-3 rounded-2xl shadow-message",
+            "px-4 py-3 rounded-2xl shadow-sm",
             isUser
-              ? "bg-chat-user-bubble text-chat-user-text rounded-br-md"
-              : "bg-chat-ai-bubble text-chat-ai-text rounded-bl-md"
+              ? "user-bubble-gradient text-white rounded-br-md"
+              : "ai-bubble text-chat-ai-text rounded-bl-md border border-border/50"
           )}
         >
           <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">
             {content}
           </p>
         </div>
-        <span className="text-xs text-chat-timestamp mt-1.5 px-1">
+        <span className="text-xs text-muted-foreground mt-1.5 px-1">
           {format(timestamp, "h:mm a")}
         </span>
       </div>
-      
+
       {isUser && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+        <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-secondary flex items-center justify-center">
           <svg
             className="w-4 h-4 text-secondary-foreground"
             fill="none"

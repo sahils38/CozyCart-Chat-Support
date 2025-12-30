@@ -12,14 +12,18 @@ const Index = () => {
         />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background gradient-bg relative overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="gradient-orb gradient-orb-1" />
+        <div className="gradient-orb gradient-orb-2" />
+
         {/* Header */}
-        <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+        <header className="glass-card sticky top-0 z-20">
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+              <div className="w-11 h-11 rounded-2xl widget-header-gradient flex items-center justify-center shadow-glow">
                 <svg
-                  className="w-5 h-5 text-primary-foreground"
+                  className="w-5 h-5 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -33,19 +37,19 @@ const Index = () => {
                 </svg>
               </div>
               <div>
-                <h1 className="font-display font-bold text-xl text-foreground">Cozy Cart</h1>
+                <h1 className="font-bold text-xl text-foreground tracking-tight">Cozy Cart</h1>
                 <p className="text-xs text-muted-foreground">Home Goods & Lifestyle</p>
               </div>
             </div>
 
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="hidden md:flex items-center gap-8">
               <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Shop
               </a>
               <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 About
               </a>
-              <a href="#" className="text-sm text-primary font-medium">
+              <a href="#" className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
                 Support
               </a>
             </nav>
@@ -53,12 +57,20 @@ const Index = () => {
         </header>
 
         {/* Main Content */}
-        <main className="container mx-auto px-4 py-8">
+        <main className="container mx-auto px-4 py-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
-            <div className="text-center mb-8">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
-                How can we help you today?
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium mb-6">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                AI Support Online
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+                How can we{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600">
+                  help you
+                </span>{" "}
+                today?
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 Chat with our AI support agent for instant answers about orders, shipping, returns, and more.
@@ -66,21 +78,26 @@ const Index = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {[
-                { icon: "🚚", label: "Shipping Info" },
-                { icon: "↩️", label: "Returns" },
-                { icon: "💳", label: "Payment" },
-                { icon: "📦", label: "Track Order" },
+                { icon: "🚚", label: "Shipping Info", desc: "Delivery times" },
+                { icon: "↩️", label: "Returns", desc: "30-day policy" },
+                { icon: "💳", label: "Payment", desc: "Secure checkout" },
+                { icon: "📦", label: "Track Order", desc: "Real-time updates" },
               ].map((item) => (
                 <button
                   key={item.label}
-                  className="flex items-center gap-2 px-4 py-3 bg-card border border-border rounded-xl hover:border-primary/50 hover:bg-accent transition-all duration-200 group"
+                  className="quick-action-card flex flex-col items-start gap-2 p-4 rounded-2xl text-left"
                 >
-                  <span className="text-lg">{item.icon}</span>
-                  <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                    {item.label}
-                  </span>
+                  <span className="text-2xl">{item.icon}</span>
+                  <div>
+                    <span className="text-sm font-medium text-foreground block">
+                      {item.label}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {item.desc}
+                    </span>
+                  </div>
                 </button>
               ))}
             </div>
@@ -91,19 +108,20 @@ const Index = () => {
             </div>
 
             {/* Footer Info */}
-            <div className="mt-8 text-center text-sm text-muted-foreground">
-              <p>
-                Need more help?{" "}
-                <a href="mailto:support@cozy-cart.store" className="text-primary hover:underline">
-                  Email our team
-                </a>{" "}
-                or call{" "}
-                <a href="tel:1-800-COZY" className="text-primary hover:underline">
-                  1-800-COZY
+            <div className="mt-10 text-center">
+              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl glass-card">
+                <span className="text-sm text-muted-foreground">
+                  Need more help?
+                </span>
+                <a
+                  href="mailto:sahilsaras38@gmail.com"
+                  className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 hover:opacity-80 transition-opacity"
+                >
+                  Email our team →
                 </a>
-              </p>
-              <p className="mt-2">
-                Available Mon-Fri, 9 AM - 6 PM EST
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Available Mon-Fri, 9 AM - 6 PM IST
               </p>
             </div>
           </div>

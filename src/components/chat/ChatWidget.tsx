@@ -163,13 +163,13 @@ export function ChatWidget() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-card rounded-2xl shadow-widget overflow-hidden border border-border">
+    <div className="flex flex-col h-full glass-card rounded-3xl shadow-glow-lg overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-4 bg-widget-header text-widget-header-text">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
+      <div className="flex items-center justify-between px-6 py-4 widget-header-gradient text-white">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
             <svg
-              className="w-5 h-5"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -183,17 +183,17 @@ export function ChatWidget() {
             </svg>
           </div>
           <div>
-            <h2 className="font-display font-semibold text-lg">Cozy Cart Support</h2>
-            <div className="flex items-center gap-1.5 text-sm opacity-90">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse-soft" />
-              <span>Online</span>
+            <h2 className="font-semibold text-lg">Cozy Cart Support</h2>
+            <div className="flex items-center gap-2 text-sm text-white/80">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span>Online • Typically replies instantly</span>
             </div>
           </div>
         </div>
 
         <button
           onClick={handleNewChat}
-          className="p-2 rounded-lg hover:bg-primary-foreground/10 transition-colors"
+          className="p-3 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-200 hover:scale-105"
           title="Start new conversation"
         >
           <svg
@@ -215,7 +215,7 @@ export function ChatWidget() {
       {/* Messages */}
       <div
         ref={chatContainerRef}
-        className="flex-1 overflow-y-auto p-4 space-y-4 chat-scrollbar bg-background"
+        className="flex-1 overflow-y-auto p-5 space-y-4 chat-scrollbar bg-gradient-to-b from-background to-background/50"
       >
         {messages.map((message) => (
           <ChatMessage

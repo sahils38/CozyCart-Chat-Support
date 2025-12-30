@@ -1,9 +1,9 @@
 export function TypingIndicator() {
   return (
     <div className="flex items-center gap-3 animate-fade-in">
-      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+      <div className="flex-shrink-0 w-9 h-9 rounded-xl widget-header-gradient flex items-center justify-center shadow-glow animate-pulse-glow">
         <svg
-          className="w-4 h-4 text-primary-foreground"
+          className="w-4 h-4 text-white"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -16,19 +16,19 @@ export function TypingIndicator() {
           />
         </svg>
       </div>
-      
-      <div className="bg-chat-ai-bubble px-4 py-3 rounded-2xl rounded-bl-md shadow-message">
+
+      <div className="ai-bubble px-5 py-4 rounded-2xl rounded-bl-md border border-border/50 shadow-sm">
         <div className="flex items-center gap-1.5">
           <div
-            className="w-2 h-2 bg-chat-typing rounded-full animate-typing-dot"
+            className="w-2.5 h-2.5 bg-purple-500 rounded-full animate-typing-dot"
             style={{ animationDelay: "0ms" }}
           />
           <div
-            className="w-2 h-2 bg-chat-typing rounded-full animate-typing-dot"
+            className="w-2.5 h-2.5 bg-purple-500 rounded-full animate-typing-dot"
             style={{ animationDelay: "200ms" }}
           />
           <div
-            className="w-2 h-2 bg-chat-typing rounded-full animate-typing-dot"
+            className="w-2.5 h-2.5 bg-purple-500 rounded-full animate-typing-dot"
             style={{ animationDelay: "400ms" }}
           />
         </div>
